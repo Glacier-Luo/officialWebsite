@@ -1,7 +1,7 @@
 <template>
     <div id="header">
         <Menu mode="horizontal" theme="light" :active-name="activeMenu" @on-select="handleRoute" class="menu">
-            <div class="logo"><span>南昌大学软件学院软件工程中心</span></div>
+            <div class="logo"><img src="../assets/logo.png"><Divider type="vertical" /><span class="name">软件学院软件工程中心</span></div>
             <MenuItem name="/">
                 <Icon type="ios-paper"></Icon>
                 首页
@@ -39,11 +39,11 @@
 </template>
 
 <script>
-    import { Menu, MenuItem, Icon } from 'iview';
+    import { Menu, MenuItem, Icon, Divider } from 'iview';
     export default {
         name: "MyMenu",
         components:{
-            Menu, MenuItem, Icon
+            Menu, MenuItem, Icon, Divider
         },
         methods: {
             handleRoute(route){
@@ -61,7 +61,7 @@
 
 <style scoped lang="less">
     #header {
-        min-width: 1300px;
+        min-width: 1500px;
         position: fixed;
         top: 0;
         left: 0;
@@ -81,6 +81,20 @@
             font-size: 20px;
             float: left;
             line-height: 60px;
+        }
+
+        img {
+            float: left;
+        }
+
+        /*太菜了， logo和文字对不齐*/
+        .name {
+            /*display: inline-block;*/
+            /*vertical-align: middle;*/
+            /*line-height: 60px;*/
+
+            /*position: relative;*/
+            /*top: -17px;*/
         }
     }
 </style>
