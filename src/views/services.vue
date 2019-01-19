@@ -2,7 +2,7 @@
     <div class="ivu-layout">
         <Layout>
             <Header><MyMenu></MyMenu></Header>
-            <Content><div><p>index</p></div></Content>
+            <Content><div><p>服务</p></div></Content>
             <Footer></Footer>
         </Layout>
     </div>
@@ -13,7 +13,7 @@
     import MyMenu from '../components/MyMenu';
     import { Layout, Header, Content, Footer } from 'iview';
     export default {
-        name: "index",
+        name: "services",
         components: {
             MyMenu, Layout, Header, Content, Footer,
             // Button, Menu, MenuGroup, MenuItem, Icon,
