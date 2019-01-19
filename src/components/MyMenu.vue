@@ -47,7 +47,7 @@
         },
         methods: {
             handleRoute(route){
-                console.log(route);
+                // console.log(route);
                 this.$router.push(route);
             }
         },
