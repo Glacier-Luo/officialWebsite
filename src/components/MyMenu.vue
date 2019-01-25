@@ -11,7 +11,7 @@
                 机构概况
             </MenuItem>
             <MenuItem name="/news">
-                <Icon type="ios-glob"></Icon>
+                <Icon type="ios-globe"></Icon>
                 新闻中心
             </MenuItem>
             <MenuItem name="/cooperation">
