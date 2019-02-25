@@ -1,5 +1,5 @@
 <template>
-    <div><p>合作</p></div>
+  <div><p>合作</p></div>
 </template>
 
 <script>

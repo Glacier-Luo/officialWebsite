@@ -1,5 +1,5 @@
 <template>
-    <div><p>社会服务</p></div>
+  <div><p>社会服务</p></div>
 </template>
 
 <script>

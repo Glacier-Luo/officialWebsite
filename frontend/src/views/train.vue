@@ -1,5 +1,5 @@
 <template>
-    <div><p>人才培养</p></div>
+  <div><p>人才培养</p></div>
 </template>
 
 <script>

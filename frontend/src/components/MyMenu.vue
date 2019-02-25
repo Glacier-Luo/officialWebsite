@@ -1,41 +1,49 @@
 <template>
-    <div id="header">
-        <Menu mode="horizontal" theme="light" :active-name="activeMenu" @on-select="handleRoute" class="menu">
-            <div class="logo"><img src="../assets/logo.png"><Divider type="vertical" /><span class="name">软件学院软件工程中心</span></div>
-            <MenuItem name="/">
-                <Icon type="ios-paper"></Icon>
-                首页
-            </MenuItem>
-            <MenuItem name="/profile">
-                <Icon type="ios-stats"></Icon>
-                机构概况
-            </MenuItem>
-            <MenuItem name="/news">
-                <Icon type="ios-globe"></Icon>
-                新闻中心
-            </MenuItem>
-            <MenuItem name="/cooperation">
-                <Icon type="ios-flask"></Icon>
-                科研合作
-            </MenuItem>
-            <MenuItem name="/services">
-                <Icon type="ios-flag"></Icon>
-                社会服务
-            </MenuItem>
-            <MenuItem name="/train">
-                <Icon type="ios-chatboxes"></Icon>
-                人才培养
-            </MenuItem>
-            <MenuItem name="/files">
-                <Icon type="ios-cloud-download"></Icon>
-                文件资料
-            </MenuItem>
-            <MenuItem name="/recruit">
-                <Icon type="ios-contacts"></Icon>
-                人才招聘
-            </MenuItem>
-        </Menu>
-    </div>
+  <div id="header">
+    <Menu
+      mode="horizontal"
+      theme="light"
+      :active-name="activeMenu"
+      class="menu"
+      @on-select="handleRoute"
+    >
+      <div class="logo">
+        <img src="../assets/logo.png"><Divider type="vertical" /><span class="name">软件学院软件工程中心</span>
+      </div>
+      <MenuItem name="/">
+        <Icon type="ios-paper" />
+        首页
+      </MenuItem>
+      <MenuItem name="/profile">
+        <Icon type="ios-stats" />
+        机构概况
+      </MenuItem>
+      <MenuItem name="/news">
+        <Icon type="ios-globe" />
+        新闻中心
+      </MenuItem>
+      <MenuItem name="/cooperation">
+        <Icon type="ios-flask" />
+        科研合作
+      </MenuItem>
+      <MenuItem name="/services">
+        <Icon type="ios-flag" />
+        社会服务
+      </MenuItem>
+      <MenuItem name="/train">
+        <Icon type="ios-chatboxes" />
+        人才培养
+      </MenuItem>
+      <MenuItem name="/files">
+        <Icon type="ios-cloud-download" />
+        文件资料
+      </MenuItem>
+      <MenuItem name="/recruit">
+        <Icon type="ios-contacts" />
+        人才招聘
+      </MenuItem>
+    </Menu>
+  </div>
 </template>
 
 <script>
@@ -45,16 +53,16 @@
         components:{
             Menu, MenuItem, Icon, Divider
         },
+        computed: {
+            activeMenu () {
+                return '/' + this.$route.path.split('/')[1]
+            },
+        },
         methods: {
             handleRoute(route){
                 // console.log(route);
                 this.$router.push(route);
             }
-        },
-        computed: {
-            activeMenu () {
-                return '/' + this.$route.path.split('/')[1]
-            },
         }
     }
 </script>

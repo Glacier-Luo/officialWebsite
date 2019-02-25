@@ -3,9 +3,9 @@
 <template>
   <div class="ivu-layout">
     <Layout>
-      <Header><MyMenu></MyMenu></Header>
-      <Content><RouterView></RouterView></Content>
-      <Footer><MyFooter></MyFooter></Footer>
+      <Header><MyMenu /></Header>
+      <Content><RouterView /></Content>
+      <Footer><MyFooter /></Footer>
     </Layout>
   </div>
 </template>

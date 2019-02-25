@@ -1,5 +1,5 @@
 <template>
-    <div><p>文件下载</p></div>
+  <div><p>文件下载</p></div>
 </template>
 
 <script>

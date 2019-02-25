@@ -1,5 +1,5 @@
 <template>
-    <div><p>人才招聘</p></div>
+  <div><p>人才招聘</p></div>
 </template>
 
 <script>
