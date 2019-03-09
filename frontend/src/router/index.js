@@ -56,8 +56,4 @@ export default [
         // component: resolve => require(['../components/Menu'], resolve)
     },
 
-    {
-        path: '/test',
-        component: resolve => require(['../components/HelloWorld'], resolve)
-    }
 ]

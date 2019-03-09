@@ -15,5 +15,10 @@
     "ecmaFeatures": { // 添加ES特性支持，使之能够识别ES6语法
       "jsx": true
     }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "commonjs": true
   }
 }
