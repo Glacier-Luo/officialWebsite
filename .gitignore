@@ -22,3 +22,4 @@ frontend/*.sw*
 
 
 backend/venv
+backend/media/*
