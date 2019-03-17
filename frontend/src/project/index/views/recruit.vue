@@ -7,7 +7,7 @@
       <Col span="16">
       <Card dis-hover>
         <!--此处应为一张宣传图-->
-        <img src="../assets/logo.png">
+        <img src="">
       </Card>
       </Col>
     </Row>

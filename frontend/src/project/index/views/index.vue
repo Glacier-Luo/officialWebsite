@@ -7,7 +7,7 @@
       <Col span="16">
       <Card dis-hover>
         <!--此处应为一张宣传图-->
-        <img src="../assets/logo.png">
+        <img src="">
       </Card>
       </Col>
     </Row>
@@ -32,7 +32,7 @@
           </a>
           <Row>
             <Col span="15">
-              <img src="../assets/logo.png">
+              <img src="">
             </Col>
             <Col span="9">
               <Divider orientation="left">Top 1</Divider>
@@ -99,7 +99,7 @@
             学员风采
           </p>
           <marquee>
-            <img src="../assets/logo.png" height="100px" v-for="i in (1,5)">
+            <img src="" height="100px" v-for="i in (1,5)">
           </marquee>
         </Card>
       </Row>
@@ -165,6 +165,7 @@
 
 <script>
     import { Card, Row, Col, Divider, Button } from 'iview';
+    import axios from 'axios';
     export default {
         components:{
             Card, Row, Col, Divider, Button
