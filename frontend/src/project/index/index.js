@@ -56,13 +56,6 @@ export default [
         // component: resolve => require(['../components/Menu'], resolve)
     },
     {
-        name: 'edit',
-        path: '/edit',
-        meta: {title: '文章编辑'},
-        component: resolve => require(['./views/edit'], resolve)
-        // component: resolve => require(['../components/Menu'], resolve)
-    },
-    {
         name: 'view',
         path: '/view',
         meta: {title: '文章查看'},

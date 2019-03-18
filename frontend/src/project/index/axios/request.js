@@ -1,17 +1,16 @@
 import axios from "axios";
 import qs from "qs";
-import router from "../main.js";
+import app from "../main.js";
 
 const service = axios.create({
-  baseURL: "http://localhost:8000/api/",
-  timeout: 5000
+  baseURL: process.env.BASE_URL,  // api的base_url
+  timeout: 5000  // 请求超时时间
 });
 
-service.interceptors.request.use(
+axios.interceptors.request.use(
   config => {
     if (token) {  // 判断是否存在token，如果存在的话，则每个http header都加上token
         config.headers.Authorization = `token ${store.state.token}`;
-        console.log('interceptors config=',config);
     }
     return config;
   },
@@ -19,7 +18,7 @@ service.interceptors.request.use(
     return Promise.reject(err);
 });
 
-service.interceptors.response.use(
+axios.interceptors.response.use(
   response => {
     return response;
   },
@@ -28,9 +27,9 @@ service.interceptors.response.use(
       switch (error.response.status) {
         case 401:
           // 返回 401 清除token信息并跳转到登录页面
-        router.replace({
-          path: '/login',
-          query: {redirect: router.currentRoute.fullPath}
+        app.router.replace({
+          path: 'login',
+          query: {redirect: app.router.currentRoute.fullPath}
         })
       }
     }
