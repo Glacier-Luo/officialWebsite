@@ -165,7 +165,6 @@
 
 <script>
     import { Card, Row, Col, Divider, Button } from 'iview';
-    import axios from 'axios';
     export default {
         components:{
             Card, Row, Col, Divider, Button

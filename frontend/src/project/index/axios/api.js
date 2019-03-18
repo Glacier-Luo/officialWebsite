@@ -1,8 +1,8 @@
 import service from './request'
  
-export const login = data => {
+export const getPersonInfo = data => {
     return service({
-        url: '/register',
+        url: '/login',
         method: 'post',
         data
     })
