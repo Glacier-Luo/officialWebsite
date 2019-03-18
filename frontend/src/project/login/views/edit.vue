@@ -116,6 +116,9 @@
             imageManagerDeleteURL: HOST + '/api/image-delete',
             fileUploadURL: HOST + '/api/file-upload',
             videoUploadURL: HOST + '/api/video-upload',
+            requestHeaders: {
+              Authorization: 'JWT ' + this.$store.getters.token
+            },
             toolbarSticky: true,
             heightMin: 320,
             heightMax: 340,
@@ -139,7 +142,7 @@
         }
       }
     }
-    
+
 </script>
 
 <style scoped>

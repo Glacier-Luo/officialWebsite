@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -8,6 +8,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('register', views.register, name='register'),
     path('token-auth', obtain_jwt_token),
+    path('api-token-refresh', refresh_jwt_token),
+    path('verify-jwt-token', verify_jwt_token),
     path('csrf-token', views.get_csrf_token),  # X-CSRFToken
     # path('file-upload', views.FileView.as_view(), name='file-upload'),
     # path('image-upload', views.ImageView.as_view(), name='image-upload'),
@@ -21,6 +23,8 @@ urlpatterns = [
     path('post-article', views.post_article),
     path('article/<int:id>/', views.article),
     path('article-list/<section>/<int:page>/', views.article_list),
-    path('article-delete/<int:id>/', views.article_delete)
+    path('article-delete/<int:id>/', views.article_delete),
+    path('change-desc', views.change_desc),
+    path('get-desc', views.get_desc)
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

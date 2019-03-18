@@ -2,7 +2,7 @@
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 # from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password, check_password
-from officialWebsite.models import User, Article
+from officialWebsite.models import User, Article, Description
 from django.db.utils import IntegrityError
 from django.middleware.csrf import get_token
 from rest_framework.views import APIView
@@ -202,3 +202,28 @@ def article_delete(request, id):
     except BaseException:
         return JsonResponse({'desc': 'Unkonw error！', 'code': 200})
     return JsonResponse({'desc': 'Delete success！', 'code': 200})
+
+
+@api_view(['GET', 'POST'])
+@permission_classes((IsAuthenticated, ))
+def change_desc(request):
+    desc = Description.objects.first()
+    data = request.POST.get('body')
+    if data is '':
+        return JsonResponse({'desc': 'Body is None！', 'code': 200})
+    if desc is None:
+        new = Description()
+        new.body = data
+        new.save()
+    else:
+        desc.body = data
+        desc.save()
+    return JsonResponse({'desc': 'Change success！', 'code': 200})
+
+
+def get_desc(request):
+    desc = Description.objects.first()
+    if desc is None:
+        return JsonResponse({'desc': 'Desc is None！', 'code': 200})
+    else:
+        return JsonResponse({'body': desc.body, 'code': 200})

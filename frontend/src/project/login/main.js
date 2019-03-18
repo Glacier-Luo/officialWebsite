@@ -13,12 +13,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router';
 import routes from './index';
+import { store } from './store'
 import 'iview/dist/styles/iview.css'
 import '../../plugins/element.js'
 
 Vue.use(VueFroala);
 Vue.use(VueRouter);
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 const router = new VueRouter({
   routes
@@ -26,8 +27,9 @@ const router = new VueRouter({
 
 new Vue({
   router,
+  store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
 
 router.beforeEach((to, from, next) => {
   /* 路由发生变化修改页面title */

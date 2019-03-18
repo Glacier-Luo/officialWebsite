@@ -11,7 +11,7 @@
     margin-bottom: 20px;
     font-size: 33px;
   }
-  
+
   h2 {
     margin-top: 20px;
   }
@@ -38,11 +38,11 @@
           >
             <div style="text-align:center">
               <h2>账号密码登陆</h2>
-              <Divider/>
+              <Divider />
               <!-- 表单 -->
               <Form ref="loginform" :model="login" :rules="loginrule" inline>
                 <FormItem prop="user" style="width: 80%">
-                  <Input type="text" v-model="login.user" placeholder="用户名" size="large">
+                  <Input type="text" v-model="login.username" placeholder="用户名" size="large">
                     <Icon type="ios-person-outline" slot="prepend"></Icon>
                   </Input>
                 </FormItem>
@@ -53,10 +53,11 @@
                 </FormItem>
                 <br />
                 <FormItem style="width: 80%">
-                  <Button type="primary" @click="handleSubmit('loginform')" long size="large">登陆</Button>
+                  <!--<Button type="primary" @click="handleSubmit('loginform')" long size="large">登陆</Button>-->
+                  <Button type="primary" @click="handleSubmit()" long size="large">登陆</Button>
                 </FormItem>
               </Form>
-              
+
             </div>
           </Card>
         </div>
@@ -67,6 +68,7 @@
 
 <script>
   import { Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col } from 'iview';
+  import api from '../../axios/api'
   export default {
     components: {
       Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col
@@ -74,11 +76,11 @@
     data () {
       return {
         login: {
-          user: '',
+          username: '',
           password: ''
         },
         loginrule: {
-          user: [
+          username: [
               { required: true, message: '请输入用户名', trigger: 'blur' }
           ],
           password: [
@@ -89,15 +91,22 @@
       }
     },
     methods: {
-      handleSubmit(name) {
-        this.$refs[name].validate((valid) => {
-          if (valid) {
-            this.$Message.success('Success!');
-          } else {
-            this.$Message.error('Fail!');
-          }
+      handleSubmit(){
+        let data = Object.assign({}, this.login);
+        api.login(data).then(res => {
+          // this.login.username = res.data.token
+          this.store.commit('change', res.data.token)
         })
       }
+      // handleSubmit(name) {
+      //   this.$refs[name].validate((valid) => {
+      //     if (valid) {
+      //       this.$Message.success('Success!');
+      //     } else {
+      //       this.$Message.error('Fail!');
+      //     }
+      //   })
+      // }
     }
   }
 </script>

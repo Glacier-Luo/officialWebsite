@@ -29,6 +29,7 @@
 
       <Col span="12">
         <Card title="机构概况" dis-hover style="height:500px">
+            <div v-html="desc"></div>
         </Card>
       </Col>
     </Row>
@@ -38,6 +39,7 @@
 
 <script>
     import { Card, Row, Col, Button } from 'iview';
+    import api from '../../axios/api'
     export default {
         components:{
             Card, Row, Col, Button
@@ -53,7 +55,18 @@
                   "人才培养":["ios-chatboxes","/train"],
                   "文件资料":["ios-cloud-download","/files"],
                   "人才招聘":["ios-contacts","/recruit"]
-                }
+                },
+                desc: ''
+            }
+        },
+        mounted () {
+            this.init()
+        },
+        methods:{
+            init(){
+                api.get_desc().then(res => {
+                    this.desc = res.data.body
+                })
             }
         }
     }

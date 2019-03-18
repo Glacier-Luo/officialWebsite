@@ -6,7 +6,7 @@ module.exports = {
     login: 'src/project/login/main.js'
   },
   devServer: {
-    port: 8000
+    port: 8080
   },
   chainWebpack: config => {
     config

@@ -4,6 +4,7 @@ import App from './App.vue';
 import routes from './index';
 import 'iview/dist/styles/iview.css';
 import '../../plugins/element.js';
+import VueFroala from 'vue-froala-wysiwyg'
 
 Vue.use(VueFroala);
 Vue.use(VueRouter);

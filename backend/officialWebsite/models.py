@@ -25,6 +25,10 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+
+class Description(models.Model):
+    body = models.TextField()
+
 class Image(models.Model):
     image = models.ImageField(upload_to='image', verbose_name='图片')
     timestamp = models.DateTimeField(auto_now_add=True)
