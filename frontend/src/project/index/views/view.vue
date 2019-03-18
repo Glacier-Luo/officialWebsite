@@ -7,7 +7,7 @@
       <Col span="16">
       <Card dis-hover>
         <!--此处应为一张宣传图-->
-        <img src="../assets/logo.png">
+        <img src="">
       </Card>
       </Col>
     </Row>
@@ -22,13 +22,13 @@
       <Col span="4">
         <Card title=" 栏目导航" icon="md-menu">
           <div v-for="(ICON,X) in guide" id="buttonmargin">
-            <Button long :icon="ICON[0]" size="large" :to="ICON[1]" :disabled="X=='机构概况'">{{ X }}</Button>
+            <Button long :icon="ICON[0]" size="large" :to="ICON[1]" :disabled="false">{{ X }}</Button>
           </div>
         </Card>
       </Col>
 
       <Col span="12">
-        <Card title="机构概况" dis-hover style="height:500px">
+        <Card dis-hover style="height:500px">
         </Card>
       </Col>
     </Row>

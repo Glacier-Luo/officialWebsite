@@ -1,5 +1,6 @@
 <style lang="less" scoped>
 </style>
+
 <template>
   <div class="ivu-layout">
     <Layout>
@@ -9,6 +10,7 @@
     </Layout>
   </div>
 </template>
+
 <script>
   import MyMenu from './components/MyMenu';
   import MyFooter from './components/MyFooter'
