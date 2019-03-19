@@ -1,10 +1,10 @@
 // Require Froala Editor js file.
-require('froala-editor/js/froala_editor.pkgd.min')
+require('froala-editor/js/froala_editor.pkgd.min');
 
 // Require Froala Editor css files.
-require('froala-editor/css/froala_editor.pkgd.min.css')
-require('font-awesome/css/font-awesome.css')
-require('froala-editor/css/froala_style.min.css')
+require('froala-editor/css/froala_editor.pkgd.min.css');
+require('font-awesome/css/font-awesome.css');
+require('froala-editor/css/froala_style.min.css');
 
 // Import and use Vue Froala lib.
 import VueFroala from 'vue-froala-wysiwyg'
@@ -16,9 +16,12 @@ import routes from './index';
 import { store } from './store'
 import 'iview/dist/styles/iview.css'
 import '../../plugins/element.js'
+import api from '../axios/api'
+// import store from './store'
 
 Vue.use(VueFroala);
 Vue.use(VueRouter);
+Vue.use(store);
 Vue.config.productionTip = false;
 
 const router = new VueRouter({
@@ -28,6 +31,22 @@ const router = new VueRouter({
 new Vue({
   router,
   store,
+  // created:function(){
+  //   setInterval(this.timer, 1000 * 2)
+  // },
+  mounted(){
+    setInterval(this.timer, 1000 * 60 * 2)
+  },
+  methods:{
+    timer:function () {
+      if(this.$store.getters.token){
+        console.log(this.$store.getters.token);
+        api.refresh_token({'token': this.$store.getters.token}).then(res => {
+          this.$store.commit('change', res.data.token)
+        })
+      }
+    }
+  },
   render: h => h(App)
 }).$mount('#app');
 

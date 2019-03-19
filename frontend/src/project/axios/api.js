@@ -1,4 +1,5 @@
 import service from './request'
+// import app from "../login/main.js";
 
 // export const getPersonInfo = data => {
 //     return service({
@@ -13,5 +14,8 @@ export default {
     },
     login(data){
         return service.post('token-auth', data)
+    },
+    refresh_token(data){
+        return service.post('api-token-refresh', data)
     }
 }

@@ -2,19 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f843778-15ef-4d3e-8875-68a23c8272dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../frontend/src/project/axios/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/project/axios/request.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/officialWebsite/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/officialWebsite/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/officialWebsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/officialWebsite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/officialWebsite/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/officialWebsite/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/axios/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/axios/request.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/index/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/views/edit.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/axios/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/axios/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/axios/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/axios/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/views/cooperation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/index/views/cooperation.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/views/files.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/index/views/files.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/views/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/index/views/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/views/news.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/index/views/news.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/views/profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/index/views/profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/views/recruit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/index/views/recruit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/views/services.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/index/views/services.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/views/train.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/index/views/train.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/index/views/view.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/index/views/view.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/login/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/login/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/project/login/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/login/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/project/login/views/admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/login/views/admin.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/project/login/views/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/login/views/edit.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/project/login/views/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/project/login/views/login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/vue.config.js" afterDir="false" />
@@ -112,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/officialWebsite/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="10" column="24" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="27" />
+              <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="27" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -344,7 +347,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63100000" />
+    <option name="totallyTimeSpent" value="64626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="208" y="370" width="1678" height="657" extended-state="0" />
@@ -703,7 +706,7 @@
     <entry file="file://$PROJECT_DIR$/officialWebsite/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="27" />
+          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="27" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

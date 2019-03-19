@@ -31,36 +31,71 @@
       <Col
         span="7"
       >
-        <div>
-          <h1 id="title">软件学院软件工程中心</h1>
-          <Card
-            id="login"
-          >
-            <div style="text-align:center">
-              <h2>账号密码登陆</h2>
-              <Divider />
-              <!-- 表单 -->
-              <Form ref="loginform" :model="login" :rules="loginrule" inline>
-                <FormItem prop="user" style="width: 80%">
-                  <Input type="text" v-model="login.username" placeholder="用户名" size="large">
-                    <Icon type="ios-person-outline" slot="prepend"></Icon>
-                  </Input>
-                </FormItem>
-                <FormItem prop="password" style="width: 80%">
-                  <Input type="password" v-model="login.password" placeholder="密码" size="large">
-                    <Icon type="ios-lock-outline" slot="prepend"></Icon>
-                  </Input>
-                </FormItem>
-                <br />
-                <FormItem style="width: 80%">
-                  <!--<Button type="primary" @click="handleSubmit('loginform')" long size="large">登陆</Button>-->
-                  <Button type="primary" @click="handleSubmit()" long size="large">登陆</Button>
-                </FormItem>
-              </Form>
-
-            </div>
-          </Card>
-        </div>
+      <div>
+        <h1 id="title">
+          软件学院软件工程中心
+        </h1>
+        <Card
+          id="login"
+        >
+          <div style="text-align:center">
+            <h2>账号密码登陆</h2>
+            <Divider />
+            <!-- 表单 -->
+            <Form
+              ref="loginform"
+              :model="login"
+              :rules="loginrule"
+              inline
+            >
+              <FormItem
+                prop="user"
+                style="width: 80%"
+              >
+                <Input
+                  v-model="login.username"
+                  type="text"
+                  placeholder="用户名"
+                  size="large"
+                >
+                <Icon
+                  slot="prepend"
+                  type="ios-person-outline"
+                ></Icon>
+                </Input>
+              </FormItem>
+              <FormItem
+                prop="password"
+                style="width: 80%"
+              >
+                <Input
+                  v-model="login.password"
+                  type="password"
+                  placeholder="密码"
+                  size="large"
+                >
+                <Icon
+                  slot="prepend"
+                  type="ios-lock-outline"
+                ></Icon>
+                </Input>
+              </FormItem>
+              <br />
+              <FormItem style="width: 80%">
+                <!--<Button type="primary" @click="handleSubmit('loginform')" long size="large">登陆</Button>-->
+                <Button
+                  type="primary"
+                  long
+                  size="large"
+                  @click="handleSubmit()"
+                >
+                  登陆
+                </Button>
+              </FormItem>
+            </Form>
+          </div>
+        </Card>
+      </div>
       </Col>
     </Row>
   </div>
@@ -95,7 +130,7 @@
         let data = Object.assign({}, this.login);
         api.login(data).then(res => {
           // this.login.username = res.data.token
-          this.store.commit('change', res.data.token)
+          this.$store.commit('change', res.data.token)
         })
       }
       // handleSubmit(name) {

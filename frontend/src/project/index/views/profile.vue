@@ -12,7 +12,7 @@
       </Col>
     </Row>
 
-    <br/>
+    <br />
 
     <Row
       type="flex"
@@ -20,20 +20,37 @@
       :gutter="24"
     >
       <Col span="4">
-        <Card title=" 栏目导航" icon="md-menu">
-          <div v-for="(ICON,X) in guide" id="buttonmargin">
-            <Button long :icon="ICON[0]" size="large" :to="ICON[1]" :disabled="X=='机构概况'">{{ X }}</Button>
-          </div>
-        </Card>
+      <Card
+        title=" 栏目导航"
+        icon="md-menu"
+      >
+        <div
+          v-for="(ICON,X) in guide"
+          id="buttonmargin"
+        >
+          <Button
+            long
+            :icon="ICON[0]"
+            size="large"
+            :to="ICON[1]"
+            :disabled="X=='机构概况'"
+          >
+            {{ X }}
+          </Button>
+        </div>
+      </Card>
       </Col>
 
       <Col span="12">
-        <Card title="机构概况" dis-hover style="height:500px">
-            <div v-html="desc"></div>
-        </Card>
+      <Card
+        title="机构概况"
+        dis-hover
+        style="height:500px"
+      >
+        <div v-html="desc"></div>
+      </Card>
       </Col>
     </Row>
-
   </div>
 </template>
 

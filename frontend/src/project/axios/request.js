@@ -1,5 +1,5 @@
 import axios from "axios";
-import app from "../index/main.js";
+// import app from "../login/main.js";
 import { HOST } from '../../../config'
 
 const service = axios.create({

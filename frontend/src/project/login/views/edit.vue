@@ -9,9 +9,9 @@
         span="4"
       >
       <Card
+        id="guide"
         title=" 栏目导航"
         icon="md-menu"
-        id="guide"
       >
         <Select
           v-model="column"
@@ -19,8 +19,9 @@
         >
           <Option
             v-for="item in columnList"
+            :key="item.value"
             :value="item.value"
-            :key="item.value">
+          >
             {{ item.label }}
           </Option>
         </Select>
@@ -29,7 +30,7 @@
             <a href="#">
               {{ passage }}
             </a>
-            <Divider/>
+            <Divider />
           </li>
         </ul>
       </Card>
@@ -44,9 +45,18 @@
       >
         <h1>{{ title }}</h1>
         <br />
-        <froala :tag="'textarea'" :config="config" v-model="model" ></froala>
+        <froala
+          v-model="model"
+          :tag="'textarea'"
+          :config="config"
+        ></froala>
         <br />
-        <Button size="large" icon="md-checkmark-circle">提交</Button>
+        <Button
+          size="large"
+          icon="md-checkmark-circle"
+        >
+          提交
+        </Button>
       </Card>
       </Col>
     </Row>

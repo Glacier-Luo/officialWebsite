@@ -4,7 +4,9 @@
 <template>
   <div class="ivu-layout">
     <Layout>
-      <Content style="margin: 20px"><RouterView /></Content>
+      <Content style="margin: 20px">
+        <RouterView />
+      </Content>
     </Layout>
   </div>
 </template>

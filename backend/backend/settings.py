@@ -163,3 +163,7 @@ PUBLIC_ROOT = os.path.join(PROJECT_ROOT, 'public')
 PUBLIC_URL = '/public/'
 
 HOST = 'http://localhost:8000'
+
+JWT_AUTH = {
+    'JWT_ALLOW_REFRESH': True,
+}
