@@ -6,10 +6,20 @@
     >
       <Col span="16">
       <Card dis-hover>
-        <h1 slot="title" style="padding: 10px">文章管理</h1>
+        <h1
+          slot="title"
+          style="padding: 10px"
+        >
+          文章管理
+        </h1>
         <Row>
-          <Col span="3" style="text-align: right">
-            <h3 style="padding-top: 5px; margin-right: 15px">栏目选择:</h3>
+          <Col
+            span="3"
+            style="text-align: right"
+          >
+          <h3 style="padding-top: 5px; margin-right: 15px">
+            栏目选择:
+          </h3>
           </Col>
           <Col span="18">
           <Select
@@ -18,8 +28,9 @@
           >
             <Option
               v-for="item in columnList"
+              :key="item.value"
               :value="item.value"
-              :key="item.value">
+            >
               {{ item.label }}
             </Option>
           </Select>
@@ -28,17 +39,28 @@
         <Row>
           <div id="passagelist">
             <p v-for="(passage,index) in passages">
-              <Divider/>
+              <Divider />
               <Row>
                 <Col span="18">
-                  {{ index+1 }}. 
-                  <a href="#">
-                    {{ passage }}
-                  </a>
+                {{ index+1 }}. 
+                <a href="#">
+                  {{ passage }}
+                </a>
                 </Col>
                 <Col span="6">
-                  <Button style="margin-right: 10px" icon="md-create" size="large">编辑</Button>
-                  <Button icon="ios-trash-outline" size="large"> 删除</Button>
+                <Button
+                  style="margin-right: 10px"
+                  icon="md-create"
+                  size="large"
+                >
+                  编辑
+                </Button>
+                <Button
+                  icon="ios-trash-outline"
+                  size="large"
+                >
+                  删除
+                </Button>
                 </Col>
               </Row>
             </p>

@@ -42,16 +42,19 @@
         <Icon type="ios-contacts" />
         人才招聘
       </MenuItem>
+      <div style="float: right; margin-right: 20px">
+        <Button type="primary">登出</Button>
+      </div>
     </Menu>
   </div>
 </template>
 
 <script>
-    import { Menu, MenuItem, Icon, Divider } from 'iview';
+    import { Menu, MenuItem, Icon, Divider, Button } from 'iview';
     export default {
         name: "MyMenu",
         components:{
-            Menu, MenuItem, Icon, Divider
+            Menu, MenuItem, Icon, Divider, Button
         },
         computed: {
             activeMenu () {

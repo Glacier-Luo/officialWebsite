@@ -12,7 +12,7 @@
       </Col>
     </Row>
 
-    <br/>
+    <br />
     
     <Row
       type="flex"
@@ -23,83 +23,116 @@
 
       <!-- 新闻中心 -->
       <Row>
-        <Card dis-hover :padding="padding" style="height:300px">
+        <Card
+          dis-hover
+          :padding="padding"
+          style="height:300px"
+        >
           <p slot="title">
             新闻中心
           </p>
-          <a href="#" slot="extra" @click.prevent="changeLimit">
+          <a
+            slot="extra"
+            href="#"
+            @click.prevent="changeLimit"
+          >
             更多
           </a>
           <Row>
             <Col span="15">
-              <img src="">
+            <img src="">
             </Col>
             <Col span="9">
-              <Divider orientation="left">Top 1</Divider>
-              <p v-text="topnews"></p>
-              <br/>
-              <ul v-for="n in news">
-                <li>
-                  <a href="">
-                    {{ n }}
-                  </a>
-                </li>
-              </ul>
+            <Divider orientation="left">
+              Top 1
+            </Divider>
+            <p v-text="topnews"></p>
+            <br />
+            <ul v-for="n in news">
+              <li>
+                <a href="">
+                  {{ n }}
+                </a>
+              </li>
+            </ul>
             </Col>
           </Row>
         </Card>
       </Row>
       
-      <br/>
+      <br />
 
       <Row :gutter="16">
         <!-- 教材资源 -->
         <Col span="12">
-          <Card dis-hover style="height:260px" :padding="padding">
-            <p slot="title">
-              教材资源
-            </p>
-            <a href="#" slot="extra" @click.prevent="changeLimit">
-              更多
-            </a>
-            <ul v-for="t in teach">
-              <li>
-                <a href="#">
-                  {{ t }}
-                </a>
-              </li>
-            </ul>
-          </Card>
+        <Card
+          dis-hover
+          style="height:260px"
+          :padding="padding"
+        >
+          <p slot="title">
+            教材资源
+          </p>
+          <a
+            slot="extra"
+            href="#"
+            @click.prevent="changeLimit"
+          >
+            更多
+          </a>
+          <ul v-for="t in teach">
+            <li>
+              <a href="#">
+                {{ t }}
+              </a>
+            </li>
+          </ul>
+        </Card>
         </Col>
         <!-- 音像资源 -->
         <Col span="12">
-          <Card dis-hover style="height:260px" :padding="padding" >
-            <p slot="title">
-              音像资源
-            </p>
-            <a href="#" slot="extra" @click.prevent="changeLimit">
-              更多
-            </a>
-            <ul v-for="v in vedio">
-              <li>
-                <a href="#">
-                  {{ v }}
-                </a>
-              </li>
-            </ul>
-          </Card>
+        <Card
+          dis-hover
+          style="height:260px"
+          :padding="padding"
+        >
+          <p slot="title">
+            音像资源
+          </p>
+          <a
+            slot="extra"
+            href="#"
+            @click.prevent="changeLimit"
+          >
+            更多
+          </a>
+          <ul v-for="v in vedio">
+            <li>
+              <a href="#">
+                {{ v }}
+              </a>
+            </li>
+          </ul>
+        </Card>
         </Col>
       </Row>
 
-      <br/>
+      <br />
 
       <Row>
-        <Card dis-hover style="height:200px">
+        <Card
+          dis-hover
+          style="height:200px"
+        >
           <p slot="title">
             学员风采
           </p>
           <marquee>
-            <img src="" height="100px" v-for="i in (1,5)">
+            <img
+              v-for="i in (1,5)"
+              src=""
+              height="100px"
+            >
           </marquee>
         </Card>
       </Row>
@@ -109,40 +142,68 @@
       <Col span="5">
       <!-- 通知公告 -->
       <Row>
-        <Card dis-hover style="height:270px">
+        <Card
+          dis-hover
+          style="height:270px"
+        >
           <p slot="title">
             通知公告
           </p>
-          <a href="#" slot="extra" @click.prevent="changeLimit">
+          <a
+            slot="extra"
+            href="#"
+            @click.prevent="changeLimit"
+          >
             更多
           </a>
-          <marquee direction="up" scrollamount="3" onMouseOut=this.start() onMouseOver=this.stop() style="height:175px">
+          <marquee
+            direction="up"
+            scrollamount="3"
+            on-mouse-out="this.start()"
+            on-mouse-over="this.stop()"
+            style="height:175px"
+          >
             <ul v-for="n in notice">
               <li>
                 <a href="#">
                   {{ n }}
                 </a>
               </li>
-              <Divider/>
+              <Divider />
             </ul>
           </marquee>
         </Card>
       </Row>
 
-      <br/>
+      <br />
 
       <Row>
-        <Card title=" 应用平台" icon="md-menu">
-          <div v-for="(ICON,X) in platform" id="buttonmargin">
-            <Button long :icon="ICON" size="large">{{ X }}</Button>
+        <Card
+          title=" 应用平台"
+          icon="md-menu"
+        >
+          <div
+            v-for="(ICON,X) in platform"
+            id="buttonmargin"
+          >
+            <Button
+              long
+              :icon="ICON"
+              size="large"
+            >
+              {{ X }}
+            </Button>
           </div>
         </Card>
       </Row>
 
-      <br/>
+      <br />
 
       <Row>
-        <Card dis-hover style="height:260px">
+        <Card
+          dis-hover
+          style="height:260px"
+        >
           <p slot="title">
             相关链接
           </p>
@@ -151,7 +212,6 @@
 
       </Col>
     </Row>
-
   </div>
   <!--<div>-->
   <!--<Card style="width: 320px">-->

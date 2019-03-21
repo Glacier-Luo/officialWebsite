@@ -1,10 +1,6 @@
 const webpack = require('webpack');
 
 module.exports = {
-  pages: {
-    index: 'src/project/index/main.js',
-    login: 'src/project/login/main.js'
-  },
   devServer: {
     port: 8000
   },

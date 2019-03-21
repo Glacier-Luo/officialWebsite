@@ -9,9 +9,9 @@
         span="4"
       >
       <Card
+        id="guide"
         title=" 栏目导航"
         icon="md-menu"
-        id="guide"
       >
         <Select
           v-model="column"
@@ -19,8 +19,9 @@
         >
           <Option
             v-for="item in columnList"
+            :key="item.value"
             :value="item.value"
-            :key="item.value">
+          >
             {{ item.label }}
           </Option>
         </Select>
@@ -29,7 +30,7 @@
             <a href="#">
               {{ passage }}
             </a>
-            <Divider/>
+            <Divider />
           </li>
         </ul>
       </Card>
@@ -39,14 +40,33 @@
         span="12"
       >
       <Card
-        title="文章编辑"
         dis-hover
       >
-        <h1>{{ title }}</h1>
+        <h2 style="text-align: center; margin: 10px">— 文章编辑 —</h2>
         <br />
-        <froala :tag="'textarea'" :config="config" v-model="model" ></froala>
+        <Row>
+          <Col span="3">
+            <p style="margin: 8px 0 0 10px">
+              <strong>文章标题：</strong>
+            </p>
+          </Col>
+          <Col span="21">
+            <Input type="text" v-model="title" size="large" clearable required />
+          </Col>
+        </Row>
         <br />
-        <Button size="large" icon="md-checkmark-circle">提交</Button>
+        <froala
+          v-model="model"
+          :tag="'textarea'"
+          :config="config"
+        ></froala>
+        <br />
+        <Button
+          size="large"
+          icon="md-checkmark-circle"
+        >
+          提交
+        </Button>
       </Card>
       </Col>
     </Row>
@@ -54,24 +74,19 @@
 </template>
 
 <script>
-    import { Card, Row, Col, Button, Select, Option, Divider } from 'iview';
+    import { Card, Row, Col, Button, Select, Option, Divider, Input } from 'iview';
     import VueFroala from 'vue-froala-wysiwyg';
     import 'froala-editor/js/languages/zh_cn.js';
     var HOST = "http://localhost:8000";
     export default {
       components:{
-          Card, Row, Col, Button, Select, Option, Divider
+          Card, Row, Col, Button, Select, Option, Divider, Input
       },
       data () {
         return {
           title: 'passage title',
-          column: '机构概况',
+          column: '新闻中心',
           columnList:[
-            {
-              value: '机构概况',
-              label: '机构概况',
-              passage: []
-            },
             {
               value: '新闻中心',
               label: '新闻中心',
@@ -116,6 +131,9 @@
             imageManagerDeleteURL: HOST + '/api/image-delete',
             fileUploadURL: HOST + '/api/file-upload',
             videoUploadURL: HOST + '/api/video-upload',
+            requestHeaders: {
+              Authorization: 'JWT ' + this.$store.getters.token
+            },
             toolbarSticky: true,
             heightMin: 320,
             heightMax: 340,
@@ -139,7 +157,7 @@
         }
       }
     }
-    
+
 </script>
 
 <style scoped>
