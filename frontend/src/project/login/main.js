@@ -40,7 +40,7 @@ new Vue({
   methods:{
     timer:function () {
       if(this.$store.getters.token){
-        console.log(this.$store.getters.token);
+        // console.log(this.$store.getters.token);
         api.refresh_token({'token': this.$store.getters.token}).then(res => {
           this.$store.commit('change', res.data.token)
         })

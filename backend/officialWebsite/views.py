@@ -193,6 +193,12 @@ def article_list(request, section, page):
     return JsonResponse(context, safe=False)
 
 
+def section_pages_number(request, section):
+    articles = Article.objects.filter(section=section)
+    pages = Paginator(articles, 10)
+    return JsonResponse({'number': pages.num_pages, 'code': 200})
+
+
 @api_view(['GET', 'POST'])
 @permission_classes((IsAuthenticated, ))
 def article_delete(request, id):

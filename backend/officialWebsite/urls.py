@@ -25,6 +25,7 @@ urlpatterns = [
     path('article-list/<section>/<int:page>/', views.article_list),
     path('article-delete/<int:id>/', views.article_delete),
     path('change-desc', views.change_desc),
-    path('get-desc', views.get_desc)
+    path('get-desc', views.get_desc),
+    path('section-pages-number/<section>/', views.section_pages_number)
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
