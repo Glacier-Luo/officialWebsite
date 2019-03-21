@@ -15,8 +15,7 @@ import VueRouter from 'vue-router';
 import routes from './index';
 import { store } from './store'
 import 'iview/dist/styles/iview.css'
-import '../../plugins/element.js'
-import api from '../axios/api'
+import api from './axios/api'
 // import store from './store'
 
 Vue.use(VueFroala);
@@ -40,7 +39,7 @@ new Vue({
   methods:{
     timer:function () {
       if(this.$store.getters.token){
-        // console.log(this.$store.getters.token);
+        console.log(this.$store.getters.token);
         api.refresh_token({'token': this.$store.getters.token}).then(res => {
           this.$store.commit('change', res.data.token)
         })

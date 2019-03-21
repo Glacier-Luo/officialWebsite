@@ -12,8 +12,8 @@
 </template>
 
 <script>
-  import MyMenu from './components/MyMenu';
-  import MyFooter from './components/MyFooter'
+  import MyMenu from '../components/MyMenu';
+  import MyFooter from '../components/MyFooter'
   import { Layout, Header, Content, Footer } from 'iview';
   export default {
     components: {

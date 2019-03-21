@@ -6,7 +6,7 @@
   }
 
   #title {
-    margin-top: 100px;
+    margin-top: 80px;
     text-align: center;
     margin-bottom: 20px;
     font-size: 33px;
@@ -18,7 +18,7 @@
 
   #loginbody {
     background-color: #f8f8f9;
-    height: 800px;
+    height: 700px;
   }
 </style>
 
@@ -103,7 +103,7 @@
 
 <script>
   import { Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col } from 'iview';
-  import api from '../../axios/api'
+  import api from '../axios/api'
   export default {
     components: {
       Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col

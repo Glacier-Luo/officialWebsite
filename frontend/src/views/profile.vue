@@ -43,10 +43,10 @@
 
       <Col span="12">
       <Card
-        title="机构概况"
         dis-hover
         style="height:500px"
       >
+        <Divider><h2 style="color: #515a6e">机构概况</h2></Divider>
         <div v-html="desc"></div>
       </Card>
       </Col>
@@ -55,11 +55,11 @@
 </template>
 
 <script>
-    import { Card, Row, Col, Button } from 'iview';
-    import api from '../../axios/api'
+    import { Card, Row, Col, Button, Divider } from 'iview';
+    import api from '../axios/api'
     export default {
         components:{
-            Card, Row, Col, Button
+            Card, Row, Col, Button, Divider
         },
         data () {
             return {

@@ -40,10 +40,20 @@
         span="12"
       >
       <Card
-        title="文章编辑"
         dis-hover
       >
-        <h1>{{ title }}</h1>
+        <h2 style="text-align: center; margin: 10px">— 文章编辑 —</h2>
+        <br />
+        <Row>
+          <Col span="3">
+            <p style="margin: 8px 0 0 10px">
+              <strong>文章标题：</strong>
+            </p>
+          </Col>
+          <Col span="21">
+            <Input type="text" v-model="title" size="large" clearable required />
+          </Col>
+        </Row>
         <br />
         <froala
           v-model="model"
@@ -64,24 +74,19 @@
 </template>
 
 <script>
-    import { Card, Row, Col, Button, Select, Option, Divider } from 'iview';
+    import { Card, Row, Col, Button, Select, Option, Divider, Input } from 'iview';
     import VueFroala from 'vue-froala-wysiwyg';
     import 'froala-editor/js/languages/zh_cn.js';
     var HOST = "http://localhost:8000";
     export default {
       components:{
-          Card, Row, Col, Button, Select, Option, Divider
+          Card, Row, Col, Button, Select, Option, Divider, Input
       },
       data () {
         return {
           title: 'passage title',
-          column: '机构概况',
+          column: '新闻中心',
           columnList:[
-            {
-              value: '机构概况',
-              label: '机构概况',
-              passage: []
-            },
             {
               value: '新闻中心',
               label: '新闻中心',
