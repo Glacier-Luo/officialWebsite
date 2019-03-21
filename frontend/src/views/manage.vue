@@ -42,7 +42,7 @@
               <Divider />
               <Row>
                 <Col span="18">
-                {{ index+1 }}. 
+                {{ index+1 }}.
                 <a href="#">
                   {{ passage }}
                 </a>
@@ -80,13 +80,13 @@
         },
         data () {
           return {
-            column: '机构概况',
+            column: '新闻中心',
             columnList:[
-              {
-                value: '机构概况',
-                label: '机构概况',
-                passage: []
-              },
+              // {
+              //   value: '机构概况',
+              //   label: '机构概况',
+              //   passage: []
+              // },
               {
                 value: '新闻中心',
                 label: '新闻中心',

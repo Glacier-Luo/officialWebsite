@@ -20,6 +20,7 @@
         <Button
           size="large"
           icon="md-checkmark-circle"
+          @click="post"
         >
           提交
         </Button>
@@ -29,13 +30,15 @@
 </template>
 
 <script>
-    import { Card, Row, Col, Button, Select, Option, Divider } from 'iview';
+    import { Card, Row, Col, Button, Select, Option, Divider, Message } from 'iview';
     import VueFroala from 'vue-froala-wysiwyg';
     import 'froala-editor/js/languages/zh_cn.js';
-    var HOST = "http://localhost:8000";
+    import api from '../axios/api'
+    // var HOST = "http://localhost:8000";
+    import { HOST } from "../../config";
     export default {
       components:{
-          Card, Row, Col, Button, Select, Option, Divider
+          Card, Row, Col, Button, Select, Option, Divider, Message
       },
       data () {
         return {
@@ -47,11 +50,11 @@
             placeholder: "请填写内容",
             language: "zh_cn",
             requestWithCORS: true,
-            imageUploadURL: HOST + '/api/image-upload',
-            imageManagerLoadURL: HOST + '/api/image-list',
-            imageManagerDeleteURL: HOST + '/api/image-delete',
-            fileUploadURL: HOST + '/api/file-upload',
-            videoUploadURL: HOST + '/api/video-upload',
+            imageUploadURL: HOST + '/image-upload',
+            imageManagerLoadURL: HOST + '/image-list',
+            imageManagerDeleteURL: HOST + '/image-delete',
+            fileUploadURL: HOST + '/file-upload',
+            videoUploadURL: HOST + '/video-upload',
             requestHeaders: {
               Authorization: 'JWT ' + this.$store.getters.token
             },
@@ -60,13 +63,42 @@
             heightMax: 400,
             events: {
               'froalaEditor.initialized': function () {
-                console.log('initialized')
+                console.log('initialized');
               }
             },
           },
           model: '文章内容'
         }
-      }
+      },
+      mounted(){
+        this.init()
+      },
+      watch: {
+        model: function (model) { //可以考虑做一个即时保存
+          console.log(model)
+        }
+      },
+      methods: {
+        post(){
+          let data = {'body': this.model};
+          api.change_desc(data).then(res => {
+            if(res.data.code === 200){
+              Message.success('更新成功！')
+            }else if(res.data.code === 400){
+              Message.error(res.data.desc)
+            }
+          }).catch(() => {
+            Message.error('服务器错误！')
+          })
+        },
+        init(){
+          api.get_desc().then(res => {
+            this.model = res.data.body
+          }).catch(() => {
+            Message.error('服务器错误！')
+          })
+        }
+      },
     }
 
 </script>

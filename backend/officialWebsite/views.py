@@ -157,19 +157,27 @@ def delete_video(request):
 @permission_classes((IsAuthenticated, ))
 def post_article(request):
     if request.method == 'POST':
-        title = request.POST.get('title')
-        body = request.POST.get('body')
-        section = request.POST.get('section')
+        # title = request.POST.get('title')
+        # body = request.POST.get('body')
+        # section = request.POST.get('section')
+        req = json.loads(request.body)
+        title = req['title']
+        body = req['body']
+        section = req['section']
+        if title is '' or body is '' or section is '':
+            return JsonResponse({'desc': 'Data is not complete！', 'code': 400})
         article = Article()
         article.title = title
         article.body = body
         article.section = section
-        try:
-            article.save()
-        except IntegrityError:
-            return JsonResponse({'desc': 'User already exists！', 'code': 200})
-        else:
-            return JsonResponse({'desc': 'Post success！', 'code': 200})
+        article.save()
+        return JsonResponse({'desc': 'Post success！', 'code': 200})
+        # try:
+        #     article.save()
+        # except IntegrityError:
+        #     return JsonResponse({'desc': 'User already exists！', 'code': 200})
+        # else:
+        #     return JsonResponse({'desc': 'Post success！', 'code': 200})
     else:
         return JsonResponse({'desc': 'Only allow POST method！', 'code': 200})
 
@@ -210,18 +218,21 @@ def article_delete(request, id):
     return JsonResponse({'desc': 'Delete success！', 'code': 200})
 
 
-@api_view(['GET', 'POST'])
+@api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def change_desc(request):
     desc = Description.objects.first()
-    data = request.POST.get('body')
+    # data = request.POST.get('body')
+    req = json.loads(request.body)
+    data = req['body']
     if data is '':
-        return JsonResponse({'desc': 'Body is None！', 'code': 200})
+        return JsonResponse({'desc': 'Body is None！', 'code': 400})
     if desc is None:
         new = Description()
         new.body = data
         new.save()
     else:
+        # print(data)
         desc.body = data
         desc.save()
     return JsonResponse({'desc': 'Change success！', 'code': 200})
@@ -230,6 +241,6 @@ def change_desc(request):
 def get_desc(request):
     desc = Description.objects.first()
     if desc is None:
-        return JsonResponse({'desc': 'Desc is None！', 'code': 200})
+        return JsonResponse({'desc': 'Desc is None！', 'code': 400})
     else:
         return JsonResponse({'body': desc.body, 'code': 200})

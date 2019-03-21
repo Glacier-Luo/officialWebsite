@@ -6,7 +6,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('register', views.register, name='register'),
+    # path('register', views.register, name='register'),
     path('token-auth', obtain_jwt_token),
     path('api-token-refresh', refresh_jwt_token),
     path('verify-jwt-token', verify_jwt_token),

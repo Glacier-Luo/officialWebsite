@@ -76,7 +76,7 @@ export default [
         children: [
             {
                 name: 'login',
-                path: 'login',
+                path: '',
                 meta: {title: '登陆'},
                 component: resolve => require(['./views/login'], resolve)
                 // component: resolve => require(['../components/Menu'], resolve)
@@ -84,26 +84,26 @@ export default [
             {
                 name: 'edit',
                 path: 'edit',
-                meta: {title: '文章编辑'},
+                meta: {title: '文章编辑', requiresAuth: true},
                 component: resolve => require(['./views/edit'], resolve)
                 // component: resolve => require(['../components/Menu'], resolve)
             },
             {
                 name: 'editprofile',
                 path: 'editprofile',
-                meta: {title: '文章编辑'},
+                meta: {title: '机构概况编辑', requiresAuth: true},
                 component: resolve => require(['./views/editprofile'], resolve)
                 // component: resolve => require(['../components/Menu'], resolve)
             },
             {
                 name: 'manage',
                 path: 'manage',
-                meta: {title: '文章管理'},
+                meta: {title: '文章管理', requiresAuth: true},
                 component: resolve => require(['./views/manage'], resolve)
                 // component: resolve => require(['../components/Menu'], resolve)
             }
         ]
     }
-    
-    
+
+
 ]

@@ -4,7 +4,7 @@
 <template>
   <div class="ivu-layout">
     <Layout>
-      <Header><MyMenu /></Header>
+      <Header><AdminMenu /></Header>
       <Content style="margin-top: 20px"><RouterView /></Content>
       <Footer><MyFooter /></Footer>
     </Layout>
@@ -12,12 +12,13 @@
 </template>
 
 <script>
-  import MyMenu from '../components/MyMenu';
+  import AdminMenu from '../components/AdminMenu'
+  // import MyMenu from '../components/MyMenu';
   import MyFooter from '../components/MyFooter'
   import { Layout, Header, Content, Footer } from 'iview';
   export default {
     components: {
-      MyFooter, MyMenu, Layout, Header, Content, Footer,
+      MyFooter, AdminMenu, Layout, Header, Content, Footer,
       // Button, Menu, MenuGroup, MenuItem, Icon,
     }
   }

@@ -73,6 +73,7 @@
                   type="password"
                   placeholder="密码"
                   size="large"
+                  @keydown.enter.native.prevent="handleSubmit"
                 >
                 <Icon
                   slot="prepend"
@@ -102,11 +103,11 @@
 </template>
 
 <script>
-  import { Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col } from 'iview';
+  import { Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col, Message } from 'iview';
   import api from '../axios/api'
   export default {
     components: {
-      Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col
+      Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col, Message
     },
     data () {
       return {
@@ -128,9 +129,16 @@
     methods: {
       handleSubmit(){
         let data = Object.assign({}, this.login);
+        if(this.login.password.length < 6)
+          return;
         api.login(data).then(res => {
           // this.login.username = res.data.token
           this.$store.commit('change', res.data.token)
+          this.$router.push('/admin/manage');
+        }).catch(() => {
+          // console.log('error')
+          // this.$Message.error('密码错误！')
+          Message.error('密码错误！')
         })
       }
       // handleSubmit(name) {

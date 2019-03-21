@@ -8,43 +8,59 @@
       @on-select="handleRoute"
     >
       <div class="logo">
-        <img src="../assets/logo.png"><Divider type="vertical" /><span class="name">软件学院软件工程中心</span>
+        <img src="../assets/logo.png"><Divider type="vertical" /><span class="name">软件学院软件工程中心后台</span>
       </div>
       <MenuItem name="/">
         <Icon type="ios-paper" />
-        首页
+        回到首页
       </MenuItem>
-      <MenuItem name="/profile">
+      <MenuItem name="/admin/editprofile">
         <Icon type="ios-stats" />
-        机构概况
+        机构概况编辑
       </MenuItem>
-      <MenuItem name="/news">
+      <MenuItem name="/admin/manage">
         <Icon type="ios-globe" />
-        新闻中心
+        文章管理
       </MenuItem>
-      <MenuItem name="/cooperation">
+      <MenuItem name="/admin/edit">
         <Icon type="ios-flask" />
-        科研合作
+        文章编辑
       </MenuItem>
-      <MenuItem name="/services">
-        <Icon type="ios-flag" />
-        社会服务
-      </MenuItem>
-      <MenuItem name="/train">
-        <Icon type="ios-chatboxes" />
-        人才培养
-      </MenuItem>
-      <MenuItem name="/files">
-        <Icon type="ios-cloud-download" />
-        文件资料
-      </MenuItem>
-      <MenuItem name="/recruit">
-        <Icon type="ios-contacts" />
-        人才招聘
-      </MenuItem>
-      <!--<div style="float: right; margin-right: 20px">-->
-        <!--<Button type="primary">登出</Button>-->
-      <!--</div>-->
+      <!--<MenuItem name="/services">-->
+      <!--<Icon type="ios-flag" />-->
+      <!--社会服务-->
+      <!--</MenuItem>-->
+      <!--<MenuItem name="/train">-->
+      <!--<Icon type="ios-chatboxes" />-->
+      <!--人才培养-->
+      <!--</MenuItem>-->
+      <!--<MenuItem name="/files">-->
+      <!--<Icon type="ios-cloud-download" />-->
+      <!--文件资料-->
+      <!--</MenuItem>-->
+      <!--<MenuItem name="/recruit">-->
+      <!--<Icon type="ios-contacts" />-->
+      <!--人才招聘-->
+      <!--</MenuItem>-->
+      <div style="float: right; margin-right: 20px">
+        <Button
+          type="primary"
+          @click="logout"
+        >
+          登出
+        </Button>
+      </div>
+      <div
+        v-show="isShow"
+        style="float: right; margin-right: 20px"
+      >
+        <Button
+          type="primary"
+          to="/admin"
+        >
+          登录
+        </Button>
+      </div>
     </Menu>
   </div>
 </template>
@@ -52,7 +68,12 @@
 <script>
     import { Menu, MenuItem, Icon, Divider, Button } from 'iview';
     export default {
-        name: "MyMenu",
+        name: "AdminMenu",
+        // data(){
+        //   return{
+        //       isShow: true,
+        //   }
+        // },
         components:{
             Menu, MenuItem, Icon, Divider, Button
         },
@@ -60,11 +81,22 @@
             activeMenu () {
                 return '/' + this.$route.path.split('/')[1]
             },
+            isShow(){
+                return !this.$store.getters.token;
+            }
+        },
+        watch:{
+
         },
         methods: {
             handleRoute(route){
                 // console.log(route);
                 this.$router.push(route);
+            },
+            logout(){
+                // console.log('logout');
+                this.$store.commit('change', '')
+                this.$router.push('/admin');
             }
         }
     }

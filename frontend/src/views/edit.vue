@@ -42,16 +42,24 @@
       <Card
         dis-hover
       >
-        <h2 style="text-align: center; margin: 10px">— 文章编辑 —</h2>
+        <h2 style="text-align: center; margin: 10px">
+          — 文章编辑 —
+        </h2>
         <br />
         <Row>
           <Col span="3">
-            <p style="margin: 8px 0 0 10px">
-              <strong>文章标题：</strong>
-            </p>
+          <p style="margin: 8px 0 0 10px">
+            <strong>文章标题：</strong>
+          </p>
           </Col>
           <Col span="21">
-            <Input type="text" v-model="title" size="large" clearable required />
+          <Input
+            v-model="title"
+            type="text"
+            size="large"
+            clearable
+            required
+          />
           </Col>
         </Row>
         <br />
@@ -64,6 +72,7 @@
         <Button
           size="large"
           icon="md-checkmark-circle"
+          @click="post"
         >
           提交
         </Button>
@@ -77,14 +86,16 @@
     import { Card, Row, Col, Button, Select, Option, Divider, Input } from 'iview';
     import VueFroala from 'vue-froala-wysiwyg';
     import 'froala-editor/js/languages/zh_cn.js';
-    var HOST = "http://localhost:8000";
+    // var HOST = "http://localhost:8000";
+    import { HOST } from "../../config";
+    import api from '../axios/api'
     export default {
       components:{
           Card, Row, Col, Button, Select, Option, Divider, Input
       },
       data () {
         return {
-          title: 'passage title',
+          title: '文章标题',
           column: '新闻中心',
           columnList:[
             {
@@ -126,11 +137,11 @@
             placeholder: "请填写内容",
             language: "zh_cn",
             requestWithCORS: true,
-            imageUploadURL: HOST + '/api/image-upload',
-            imageManagerLoadURL: HOST + '/api/image-list',
-            imageManagerDeleteURL: HOST + '/api/image-delete',
-            fileUploadURL: HOST + '/api/file-upload',
-            videoUploadURL: HOST + '/api/video-upload',
+            imageUploadURL: HOST + '/image-upload',
+            imageManagerLoadURL: HOST + '/image-list',
+            imageManagerDeleteURL: HOST + '/image-delete',
+            fileUploadURL: HOST + '/file-upload',
+            videoUploadURL: HOST + '/video-upload',
             requestHeaders: {
               Authorization: 'JWT ' + this.$store.getters.token
             },
@@ -154,6 +165,11 @@
             passage = col.passage
           })
           return passage;
+        }
+      },
+      methods:{
+        post(){
+          let data = {'title': this.title, 'body': this.model};
         }
       }
     }
