@@ -154,7 +154,7 @@
       },
       methods: {
         init: function() {
-          api.get_edit().then(res => {
+          api.get_edit(column, page).then(res => {
             // 获得当前的编辑文章的 标题 栏目 内容 所有栏目的文章标题
             let r = r.data.body;
             this.title = r.title;
@@ -168,7 +168,7 @@
         handleSubmit: function() {
           // 提交编辑后的文章内容
           let data = this.model;
-          api.edit(data).then(res => {
+          api.edit(data, page).then(res => {
             this.$store.commit('change', res.data.token)
           })
         }

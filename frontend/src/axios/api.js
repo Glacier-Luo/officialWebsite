@@ -45,12 +45,12 @@ export default {
     },
 
     // edit get content
-    get_edit(){
-        return service.get('get-edit')
+    get_edit(column, page){
+        return service.get('get-edit/' + column + '/' + page)
     },
     // edit submit
-    edit(data) {
-        return service.post('edit', data)
+    edit(data, page) {
+        return service.post('edit/' + page, data)
     },
     // edit profile get
     get_editprofile(){
@@ -70,13 +70,20 @@ export default {
     get_manage(){
         return service.get('get-manage')
     },
+    delete(column, page){
+        return service.post('delete/' + column + "/" + page)
+    },
+    to_edit(column, page){
+        return service.get('to-edit/' + column + "/" + page)
+    },
+
     // password
     password(data){
         return service.post('check-password', data)
     },
 
     // view
-    get_view(){
-        return service.get('get-view')
+    get_view(column, page){
+        return service.get('get-view/' + column + "/" + page)
     }
 }

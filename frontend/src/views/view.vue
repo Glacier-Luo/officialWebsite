@@ -84,7 +84,7 @@
         },
         methods: {
           init() {
-            api.get_view().then(res => {
+            api.get_view(column, page).then(res => {
               let r = res.data.body
               this.title = r.title
               this.passage = r.passage

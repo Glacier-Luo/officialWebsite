@@ -52,12 +52,14 @@
                   style="margin-right: 10px"
                   icon="md-create"
                   size="large"
+                  @click="handleEdit()"
                 >
                   编辑
                 </Button>
                 <Button
                   icon="ios-trash-outline"
                   size="large"
+                  @click="handleDelete()"
                 >
                   删除
                 </Button>
@@ -73,12 +75,14 @@
                   style="margin-right: 10px"
                   icon="md-create"
                   size="small"
+                  @click="handleEdit()"
                 >
                   编辑
                 </Button>
                 <Button
                   icon="ios-trash-outline"
                   size="small"
+                  @click="handleSubmit()"
                 >
                   删除
                 </Button>
@@ -137,7 +141,7 @@
               {
                 value: '人才招聘',
                 label: '人才招聘',
-                passage: []
+                passage: ['sdfdsf']
               }
             ],
           }
@@ -152,6 +156,17 @@
               for(var i in this.columnList) {
                 this.columnList[i].passage = res.data.body[i]
               }
+            })
+          },
+          handleDelete: function() {
+            // 删除文章的column page不知道怎么获得
+            api.delete(columm, page).then(res => {
+              alert("删除成功");
+            })
+          },
+          handleEdit: function() {
+            api.to_edit(column, page).then(res => {
+              // 
             })
           }
         },
