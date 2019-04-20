@@ -29,7 +29,7 @@
       justify="center"
     >
       <Col
-        span="7"
+        :xs="22" :md="7"
       >
       <div>
         <h1 id="title">
@@ -73,7 +73,6 @@
                   type="password"
                   placeholder="密码"
                   size="large"
-                  @keydown.enter.native.prevent="handleSubmit"
                 >
                 <Icon
                   slot="prepend"
@@ -103,11 +102,11 @@
 </template>
 
 <script>
-  import { Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col, Message } from 'iview';
+  import { Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col } from 'iview';
   import api from '../axios/api'
   export default {
     components: {
-      Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col, Message
+      Card, Form, FormItem, Input, Icon, Button, Divider, Row, Col
     },
     data () {
       return {
@@ -129,16 +128,15 @@
     methods: {
       handleSubmit(){
         let data = Object.assign({}, this.login);
-        if(this.login.password.length < 6)
-          return;
         api.login(data).then(res => {
           // this.login.username = res.data.token
           this.$store.commit('change', res.data.token)
-          this.$router.push('/admin/manage');
-        }).catch(() => {
-          // console.log('error')
-          // this.$Message.error('密码错误！')
-          Message.error('密码错误！')
+          // 密码错误
+          if(res.data.body) {
+            alert("账号或密码错误")
+            this.username = ''
+            this.password = ''
+          }
         })
       }
       // handleSubmit(name) {

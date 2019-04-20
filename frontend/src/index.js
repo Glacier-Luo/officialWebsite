@@ -76,34 +76,48 @@ export default [
         children: [
             {
                 name: 'login',
-                path: '',
+                path: '/login',
                 meta: {title: '登陆'},
                 component: resolve => require(['./views/login'], resolve)
                 // component: resolve => require(['../components/Menu'], resolve)
             },
             {
+                name: 'password',
+                path: '/password',
+                meta: {title: '密码修改'},
+                component: resolve => require(['./views/password'], resolve)
+                // component: resolve => require(['../components/Menu'], resolve)
+            },
+            {
                 name: 'edit',
-                path: 'edit',
-                meta: {title: '文章编辑', requiresAuth: true},
+                path: '/edit',
+                meta: {title: '文章编辑'},
                 component: resolve => require(['./views/edit'], resolve)
                 // component: resolve => require(['../components/Menu'], resolve)
             },
             {
                 name: 'editprofile',
-                path: 'editprofile',
-                meta: {title: '机构概况编辑', requiresAuth: true},
+                path: '/editprofile',
+                meta: {title: '文章编辑'},
                 component: resolve => require(['./views/editprofile'], resolve)
                 // component: resolve => require(['../components/Menu'], resolve)
             },
             {
                 name: 'manage',
-                path: 'manage',
-                meta: {title: '文章管理', requiresAuth: true},
+                path: '/manage',
+                meta: {title: '文章管理'},
                 component: resolve => require(['./views/manage'], resolve)
+                // component: resolve => require(['../components/Menu'], resolve)
+            },
+            {
+                name: 'notfound',
+                path: '/notfound',
+                meta: {title: '404'},
+                component: resolve => require(['./views/notfound'], resolve)
                 // component: resolve => require(['../components/Menu'], resolve)
             }
         ]
     }
-
-
+    
+    
 ]

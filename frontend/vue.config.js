@@ -2,7 +2,7 @@ const webpack = require('webpack');
 
 module.exports = {
   devServer: {
-    port: 8080
+    port: 8000
   },
   chainWebpack: config => {
     config
@@ -14,4 +14,4 @@ module.exports = {
           'window.jQuery': 'jquery'
       }]);
   },
-};
+}
