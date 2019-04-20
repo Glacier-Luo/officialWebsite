@@ -9,9 +9,6 @@ import service from './request'
 //     })
 // };
 export default {
-    change_desc(data){
-        return service.post('change-desc', data)
-    },
     get_desc(){
         return service.get('get-desc')
     },
@@ -21,16 +18,72 @@ export default {
     refresh_token(data){
         return service.post('api-token-refresh', data)
     },
-    post_article(data){
-        return service.post('post-article', data)
+
+    // cooperation
+    get_cooperation(){
+        return service.get('get-cooperation')
     },
-    article_list(section, page){
-        return service.get('article-list/' + section + '/' + page)
+    // files
+    get_files(){
+        return service.get('get-files')
     },
-    get_article(page){
-        return service.get('article/' + page)
+    // train
+    get_train(){
+        return service.get('get-train')
     },
-    delete_article(page){
-        return service.get('article-delete/' + page)
+    // services
+    get_services(){
+        return service.get('get-services')
+    },
+    // recruit
+    get_recruit(){
+        return service.get('get-recruit')
+    },
+    // news
+    get_news(){
+        return service.get('get-news')
+    },
+
+    // edit get content
+    get_edit(column, page){
+        return service.get('get-edit/' + column + '/' + page)
+    },
+    // edit submit
+    edit(data, page) {
+        return service.post('edit/' + page, data)
+    },
+    // edit profile get
+    get_editprofile(){
+        return service.get('get-editprofile')
+    },
+    // edit profile submit
+    editprofile(data){
+        return service.post('editprofile', data)
+    },
+
+    // index
+    get_index(){
+        return service.get('get-index')
+    },
+
+    // manage
+    get_manage(){
+        return service.get('get-manage')
+    },
+    delete(column, page){
+        return service.post('delete/' + column + "/" + page)
+    },
+    to_edit(column, page){
+        return service.get('to-edit/' + column + "/" + page)
+    },
+
+    // password
+    password(data){
+        return service.post('check-password', data)
+    },
+
+    // view
+    get_view(column, page){
+        return service.get('get-view/' + column + "/" + page)
     }
 }

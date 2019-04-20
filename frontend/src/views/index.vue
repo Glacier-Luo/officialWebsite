@@ -4,7 +4,7 @@
       type="flex"
       justify="center"
     >
-      <Col span="16">
+      <Col :xs="20" :md="16">
       <Card dis-hover>
         <!--此处应为一张宣传图-->
         <img src="">
@@ -19,14 +19,14 @@
       justify="center"
       :gutter="24"
     >
-      <Col span="11">
+      <Col :xs="20" :md="11">
 
       <!-- 新闻中心 -->
       <Row>
         <Card
           dis-hover
           :padding="padding"
-          style="height:300px"
+          style="min-height:300px"
         >
           <p slot="title">
             新闻中心
@@ -39,10 +39,10 @@
             更多
           </a>
           <Row>
-            <Col span="15">
-            <img src="">
+            <Col :xs="24" :md="15">
+              <img src="../assets/logo.png">
             </Col>
-            <Col span="9">
+            <Col :xs="24" :md="9">
             <Divider orientation="left">
               Top 1
             </Divider>
@@ -64,10 +64,10 @@
 
       <Row :gutter="16">
         <!-- 教材资源 -->
-        <Col span="12">
+        <Col :xs="24" :md="12">
         <Card
           dis-hover
-          style="height:260px"
+          style="min-height: 260px; margin-bottom: 10px;"
           :padding="padding"
         >
           <p slot="title">
@@ -90,10 +90,10 @@
         </Card>
         </Col>
         <!-- 音像资源 -->
-        <Col span="12">
+        <Col :xs="24" :md="12">
         <Card
           dis-hover
-          style="height:260px"
+          style="min-height:260px"
           :padding="padding"
         >
           <p slot="title">
@@ -122,7 +122,7 @@
       <Row>
         <Card
           dis-hover
-          style="height:200px"
+          style="height:200px; margin-bottom: 10px"
         >
           <p slot="title">
             学员风采
@@ -139,7 +139,7 @@
 
       </Col>
 
-      <Col span="5">
+      <Col :xs="20" :md="5">
       <!-- 通知公告 -->
       <Row>
         <Card
@@ -202,7 +202,7 @@
       <Row>
         <Card
           dis-hover
-          style="height:260px"
+          style="min-height:260px"
         >
           <p slot="title">
             相关链接
@@ -225,6 +225,7 @@
 
 <script>
     import { Card, Row, Col, Divider, Button } from 'iview';
+    import api from '../axios/api'
     export default {
         components:{
             Card, Row, Col, Divider, Button
@@ -232,7 +233,7 @@
         data () {
             return {
                 news:["全国县级职教中心新时代振兴发展研讨会在石家庄市召","职业教育新发展 校企合作结硕果"],
-                topnews: "国开校中专〔 2018 〕7号.......",
+                topnews: '',
                 teach: ["《计算机应用基础（Access2010数据库应用系统）》","《计算机应用基础（PowerPoint2010电子演示文稿系统）》"],
                 vedio: ["《学前儿童卫生与保健》","《学前儿童健康教育》"],
                 notice: [
@@ -249,6 +250,21 @@
                 },
                 padding: 30,
             }
+        },
+        mounted: function() {
+          this.init()
+        },
+        methods: {
+          init: function() {
+            api.get_index().then(res => {
+              // 没有各文章标题的url
+              let r = res.data.body;
+              this.news = r.news;
+              this.topnews = this.news[0];
+              this.video = r.video;
+              this.notice = r.notice;
+            })
+          }
         }
     }
 </script>

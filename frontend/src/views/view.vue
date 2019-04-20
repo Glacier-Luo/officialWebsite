@@ -4,7 +4,7 @@
       type="flex"
       justify="center"
     >
-      <Col span="16">
+      <Col :xs="20" :md="16">
       <Card dis-hover>
         <!--此处应为一张宣传图-->
         <img src="">
@@ -19,10 +19,11 @@
       justify="center"
       :gutter="24"
     >
-      <Col span="4">
+      <Col :xs="0" :sm="5" :md="4">
       <Card
         title=" 栏目导航"
         icon="md-menu"
+        style="margin-bottom:10px"
       >
         <div
           v-for="(ICON,X) in guide"
@@ -41,11 +42,14 @@
       </Card>
       </Col>
 
-      <Col span="12">
+      <Col :xs="20" :sm="16" :md="12">
       <Card
         dis-hover
-        style="height:500px"
+        style="height:500px; padding:10px"
       >
+        <h1 style="text-align: center"><strong>{{ title }}</strong></h1>
+        <Divider/>
+        <div v-html="passage"></div>
       </Card>
       </Col>
     </Row>
@@ -53,10 +57,11 @@
 </template>
 
 <script>
-    import { Card, Row, Col, Button } from 'iview';
+    import { Card, Row, Col, Button, Divider } from 'iview';
+    import api from '../axios/api'
     export default {
         components:{
-            Card, Row, Col, Button
+            Card, Row, Col, Button, Divider
         },
         data () {
             return {
@@ -69,8 +74,22 @@
                   "人才培养":["ios-chatboxes","/train"],
                   "文件资料":["ios-cloud-download","/files"],
                   "人才招聘":["ios-contacts","/recruit"]
-                }
+                },
+                title: 'Title',
+                passage: '<p>passage</p>'
             }
+        },
+        mounted: function() {
+          this.init()
+        },
+        methods: {
+          init() {
+            api.get_view(column, page).then(res => {
+              let r = res.data.body
+              this.title = r.title
+              this.passage = r.passage
+            })
+          }
         }
     }
 </script>

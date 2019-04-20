@@ -4,7 +4,7 @@
       type="flex"
       justify="center"
     >
-      <Col span="16">
+      <Col :xs="20" :md="16">
       <Card dis-hover>
         <!--此处应为一张宣传图-->
         <img src="">
@@ -19,10 +19,11 @@
       justify="center"
       :gutter="24"
     >
-      <Col span="4">
+      <Col :xs="0" :sm="5" :md="4">
       <Card
         title=" 栏目导航"
         icon="md-menu"
+        style="margin-bottom:10px"
       >
         <div
           v-for="(ICON,X) in guide"
@@ -41,7 +42,7 @@
       </Card>
       </Col>
 
-      <Col span="12">
+      <Col :xs="20" :sm="16" :md="12">
       <Card
         dis-hover
         style="height:500px"
@@ -81,6 +82,7 @@
 
 <script>
     import { Card, Row, Col, Button, Page, Divider } from 'iview';
+    import api from '../axios/api'
     export default {
         components:{
             Card, Row, Col, Button, Page, Divider
@@ -109,15 +111,24 @@
           }
         },
         mounted: function() {
-          var _this = this
-          if (this.pageList.length >= 10) {
-            _this.display = _this.pageList.slice(0, 10)
-          }
-          else {
-            _this.display = _this.pageList.slice(0, _this.pageList.length)
-          }
+          this.init()
         },
         methods: {
+          init: function() {
+            // 初始数据
+            api.get_cooperation().then(res => {
+              // 还没有写文章标题的url
+              this.pageList = res.data.body
+            })
+            // 页面初始分页
+            var _this = this
+            if (this.pageList.length >= 10) {
+              _this.display = _this.pageList.slice(0, 10)
+            }
+            else {
+              _this.display = _this.pageList.slice(0, _this.pageList.length)
+            }
+          },
           onChange: function(page) {
             this.currentpage = page
             var str = (this.currentpage-1) * this.currentlist;

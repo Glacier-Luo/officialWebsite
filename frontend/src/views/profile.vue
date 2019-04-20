@@ -4,7 +4,7 @@
       type="flex"
       justify="center"
     >
-      <Col span="16">
+      <Col :xs="20" :md="16">
       <Card dis-hover>
         <!--此处应为一张宣传图-->
         <img src="">
@@ -19,10 +19,11 @@
       justify="center"
       :gutter="24"
     >
-      <Col span="4">
+      <Col :xs="0" :sm="5" :md="4">
       <Card
         title=" 栏目导航"
         icon="md-menu"
+        style="margin-bottom:10px"
       >
         <div
           v-for="(ICON,X) in guide"
@@ -41,7 +42,7 @@
       </Card>
       </Col>
 
-      <Col span="12">
+      <Col :xs="20" :sm="16" :md="12">
       <Card
         dis-hover
         style="height:500px"
